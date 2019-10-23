@@ -1,0 +1,6 @@
+.idea
+.vs
+*.njsproj
+*.sln
+node_modules
+obj

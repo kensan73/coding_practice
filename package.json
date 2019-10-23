@@ -1,0 +1,17 @@
+{
+  "name": "coding_practice",
+  "version": "0.0.0",
+  "description": "coding_practice",
+  "main": "app.js",
+  "author": {
+    "name": ""
+  },
+  "devDependencies": {
+    "coffeescript": "^2.4.1",
+    "expect": "^24.9.0",
+    "mocha": "^6.2.2"
+  },
+  "scripts": {
+    "test":  "yarn mocha --require node_modules/coffeescript/register.js *.spec.coffee" 
+  } 
+}

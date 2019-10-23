@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+    <style type="text/css">
+        .progressbar-parent {
+            width: 200px;
+            height: 100px;
+            background-color: grey;
+            border: 1px solid black;
+        }
+        .progressbar {
+            background-color: green;
+            width: 1px;
+            height: inherit;
+        }
+    </style>
+    <script type="text/javascript">
+        function startprogress() {
+          startinterval = () => {
+            interval = setInterval(
+              () => {
+                let pb = document.querySelector(".progressbar");
+                if(pb.style.width === '')
+                  pb.style.width = "0px";
+                const regex = /(.*)px/
+                const width = regex.exec(pb.style.width)[1]-0;
+                pb.style.width = `${width + 10}` + 'px';
+                if(width >= 190)
+                  clearInterval(interval);
+              }
+              , 1000
+            )
+          }
+
+          startinterval();
+        }
+    </script>
+</head>
+<body>
+<main>
+    <head></head>
+    <nav></nav>
+    <section id="progressbar">
+        <div class="progressbar-parent">
+            <div class="progressbar">
+            </div>
+        </div>
+        <button onclick="startprogress()">start</button>
+    </section>
+</main>
+</body>
+</html>
