@@ -17,15 +17,14 @@
     <script type="text/javascript">
         function startprogress() {
           startinterval = () => {
+            const pb = document.querySelector(".progressbar");
+            let curpx = 0;
+
             interval = setInterval(
               () => {
-                let pb = document.querySelector(".progressbar");
-                if(pb.style.width === '')
-                  pb.style.width = "0px";
-                const regex = /(.*)px/
-                const width = regex.exec(pb.style.width)[1]-0;
-                pb.style.width = `${width + 10}` + 'px';
-                if(width >= 190)
+                curpx += 10;
+                pb.style.width = `${curpx + 10}` + 'px';
+                if(curpx >= 190)
                   clearInterval(interval);
               }
               , 1000
