@@ -10,7 +10,7 @@
         }
         .progressbar {
             background-color: green;
-            width: 1px;
+            width: 0px;
             height: inherit;
         }
     </style>
@@ -33,6 +33,29 @@
 
           startinterval();
         }
+        function startprogressJustCss() {
+            const pb = document.querySelector(".progressbar");
+
+            if(pb.style.width === "100%") {
+              pb.style.transition = null;
+              pb.style.width = "0%";
+              return;
+            }
+            pb.style.transition = "2s linear width";
+            pb.style.width = "100%";
+        }
+        function startprogressJustCssPromise() {
+            const pb = document.querySelector(".progressbar");
+
+            if(pb.style.width === "100%") {
+              pb.style.transition = null;
+              pb.style.width = "0%";
+            }
+            pb.promise().done(() => {
+              pb.style.transition = "2s linear width";
+              pb.style.width = "100%";
+            })
+        }
     </script>
 </head>
 <body>
@@ -45,6 +68,16 @@
             </div>
         </div>
         <button onclick="startprogress()">start</button>
+        <button onclick="startprogressJustCss()">startCss</button>
+        <button onclick="startprogressJustCssPromise()">startCssPromise</button>
+    </section>
+    <section class="dropdown">
+        <details>
+            <summary>click here for more info</summary>
+            <h6>more info 1</h6>
+            <h6>more info 2</h6>
+            <h6>more info 3</h6>
+        </details>
     </section>
 </main>
 </body>
