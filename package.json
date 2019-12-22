@@ -9,9 +9,10 @@
   "devDependencies": {
     "coffeescript": "^2.4.1",
     "expect": "^24.9.0",
+    "given": "^1.0.1",
     "mocha": "^6.2.2"
   },
   "scripts": {
-    "test":  "yarn mocha --require node_modules/coffeescript/register.js **/*spec.coffee"
-  } 
+    "test": "yarn mocha --require node_modules/coffeescript/register.js **/*spec.coffee"
+  }
 }

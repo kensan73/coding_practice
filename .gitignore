@@ -4,3 +4,4 @@
 *.sln
 node_modules
 obj
+yarn-error.log
